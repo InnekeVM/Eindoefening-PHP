@@ -1,21 +1,21 @@
 <?php
 
  class Product {
-     private $product_id;
+     private $productId;
      private $naam;
      private $beschikbaarheid;
      private $prijs;
    
     
-     function __construct($product_id, $naam, $beschikbaarheid, $prijs) {
-         $this->product_id = $product_id;
+     function __construct($productId, $naam, $beschikbaarheid, $prijs) {
+         $this->productId = $productId;
          $this->naam = $naam;
          $this->beschikbaarheid = $beschikbaarheid;
          $this->prijs = $prijs;
          $this->promoprijs = $promoprijs;
      }
      
-     function getProduct_id() {
+     function getProductId() {
          return $this->product_id;
      }
 

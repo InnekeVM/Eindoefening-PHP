@@ -1,26 +1,23 @@
 <?php
  class Ingredient {
      private $ingredientId;
-     private $ingredient;
-     
-     function __construct($ingredientId, $ingredient) {
-         $this->ingredientId = $ingredientId;
-         $this->ingredient = $ingredient;
-     }
-    
-     function setIngredient($ingredient) {
-         $this->ingredient = $ingredient;
-     }
+     private $naam;
 
+     function __construct($ingredientId, $naam) {
+         $this->ingredientId = $ingredientId;
+         $this->naam = $naam;
+     }
      function getIngredientId() {
          return $this->ingredientId;
      }
 
-     function getIngredient() {
-         return $this->ingredient;
+     function getNaam() {
+         return $this->naam;
      }
 
-
+     function setNaam($naam) {
+         $this->naam = $naam;
+     }
 
  }
 

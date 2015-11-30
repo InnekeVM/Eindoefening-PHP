@@ -24,7 +24,6 @@ class ProductDAO {
 
     public function getById($id) {
         $sql = "select * form producten where productId = :id";
-
         $$dbh = new DBConfig();
         $stmt = $dbh->prepare($sql);
         $stmt->execute(array(':id' => $id));
