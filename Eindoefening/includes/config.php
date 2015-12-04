@@ -8,10 +8,10 @@ return [
     'db_engine' => 'mysql',
     
     // Database username
-    'db_username' => 'inneke',
+    'db_username' => 'Inneke',
     
     // Database password
-    'db_password' => 'pwdinneke',
+    'db_password' => 'pwd',
     
     // Database name
     'db_database' => 'webshop',

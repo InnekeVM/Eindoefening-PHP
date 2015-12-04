@@ -11,15 +11,25 @@ class WinkelwagenService {
 
     public function bestel() {
         $aangepast = false;
-        foreach ($_SESSION['winkelwagen'] as $id => $lijn) {
-            /* @var $lijn Orderlijn */
-            $productId = $lijn->getProduct()->getProductId();
-            if ($productId == $_POST['productId']) {
-                $lijn->setAantal($_POST['aantal'] + $lijn->getAantal());
-                $aangepast = true;
+        var_dump($_SESSION);
+
+        if (isset($_SESSION['winkelwagen'])) {
+
+            foreach ($_SESSION['winkelwagen'] as $id => $lijn) {
+                /* @var $lijn Orderlijn */
+                $productId = $lijn->getProduct()->getProductId();
+                if ($productId == $_POST['productId']) {
+
+                    $lijn->setAantal($_POST['aantal'] + $lijn->getAantal());
+                    $aangepast = true;
+                }
+            } if (!$aangepast) {
+                $winkelwagenlijn = new Orderlijn($_POST['productId'], $_POST['aantal']);
+                array_push($_SESSION['winkelwagen'], $winkelwagenlijn);
             }
-        }
-        if (!$aangepast) {
+        } else {
+
+            $_SESSION['winkelwagen'] = array();
             $winkelwagenlijn = new Orderlijn($_POST['productId'], $_POST['aantal']);
             array_push($_SESSION['winkelwagen'], $winkelwagenlijn);
         }
@@ -31,6 +41,7 @@ class WinkelwagenService {
 
     public function wijzig() {
         foreach ($_SESSION['winkelwagen'] as $id => $lijn) {
+
             /* @var $lijn Orderlijn */
             $productId = $lijn->getProduct()->getProductId();
             if ($productId == $_POST['productId']) {

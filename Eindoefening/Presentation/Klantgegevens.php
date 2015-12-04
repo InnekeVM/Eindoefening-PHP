@@ -39,5 +39,5 @@
             <input type="checkbox" name="acount">Een nieuwe account aanmaken<br>
             <input type="submit" value="Vul gegevens in">
         </form>
-
+<?php        var_dump($id);?>
     </body>

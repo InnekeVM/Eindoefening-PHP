@@ -3,8 +3,5 @@
  require_once 'includes/init.php';
  require_once 'Business/KlantService.php';
  
- if (isset($_GET['action']) && $_GET['action']== 'bestel')
+ include_once 'Presentation/Afrekenen.php';
  
- if (isset($_POST['acount'])){
-     header("location:WebklantRegistratie.php");
- }

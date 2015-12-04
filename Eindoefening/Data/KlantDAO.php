@@ -21,6 +21,8 @@ class KlantDAO {
         $dbh = InnekeFramework::getDatabase();
         $stmt = $dbh->prepare($sql);
         $stmt->execute(array(':naam' => $naam, ':voornaam' => $voornaam, ':adres' => $adres, ':postcode' => $postcode, ':gemeente' => $gemeente, ':telefoonnummer' => $telefoonnummer));
+        $id = $dbh->lastInsertId();
+        return $id;
     }
 
 }

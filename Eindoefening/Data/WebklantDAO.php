@@ -32,7 +32,7 @@ class WebklantDAO {
     }
 
     public function voegWebklantToe($email, $wachtwoord, $klantId) {
-        $sql = "insert into klanten (email, wachtwoord, klantId) values (:email, :wachtwoord, :klantId)";
+        $sql = "insert into webklanten (email, wachtwoord, klantId) values (:email, :wachtwoord, :klantId)";
         $dbh = InnekeFramework::getDatabase();
         $stmt = $dbh->prepare($sql);
         $stmt->execute(array(':email' => $email, ':wachtwoord' => $wachtwoord, ':klantId' => $klantId));

@@ -1,7 +1,7 @@
 <?php
 
 require_once 'Exceptions/WachtwoordFoutException.php';
-require_once 'Exceptions/EmailadresReedsAcountException.php';
+require_once 'Exceptions/EmailadresReedsAccountException.php';
 require_once 'Exceptions/KlantBestaatNietException.php';
 require_once 'Data/KlantDAO.php';
 require_once 'Data/WebklantDAO.php';
@@ -22,14 +22,14 @@ class KlantService {
 
     public function voegToe($naam, $voornaam, $adres, $postcode, $gemeente, $telefoonnummer) {
         $klantDAO = new KlantDAO();        
-        $klantDAO->voegKlantToe($naam, $voornaam, $adres, $postcode, $gemeente, $telefoonnummer);
-    }
+        return $klantDAO->voegKlantToe($naam, $voornaam, $adres, $postcode, $gemeente, $telefoonnummer);
+   }
 
     public function registreer($email, $wachtwoord, $klantId) {
         $webklantDAO = new WebklantDAO();
         $klant = $webklantDAO->getByEmail($email);
         if ($klant) {
-            throw new EmailadresReedsAcountException;
+            throw new EmailadresReedsAccountException;
         } else {
             $salt = sha1($email);
             $wachtwoordHash = sha1($salt . $wachtwoord);
