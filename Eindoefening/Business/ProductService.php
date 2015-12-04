@@ -1,16 +1,17 @@
 <?php
 require_once 'Data/ProductDAO.php';
+require_once 'Data/IngredientDAO.php';
 
 class ProductService {
     public function getOverzicht() {
         $productDAO = new ProductDAO();
-        $lijst = $productDAO->getAll();
-        return $Lijst;
+      return $productDAO->getAll();
     }
     
+    
     public function getIngredienten($id) {
-        $productDAO = new ProductDAO();
-        $lijst = $productDAO->getIngredienten($id);
+        $ingredientDAO = new IngredientDAO();
+        $lijst = $ingredientDAO->getIngredienten($id);
         return $lijst;
     }
 }

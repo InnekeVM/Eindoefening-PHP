@@ -1,46 +1,50 @@
 <?php
 
- class Product {
-     private $productId;
-     private $naam;
-     private $beschikbaarheid;
-     private $prijs;
-   
-    
-     function __construct($productId, $naam, $beschikbaarheid, $prijs) {
-         $this->productId = $productId;
-         $this->naam = $naam;
-         $this->beschikbaarheid = $beschikbaarheid;
-         $this->prijs = $prijs;
-         $this->promoprijs = $promoprijs;
-     }
-     
-     function getProductId() {
-         return $this->product_id;
-     }
+class Product {
 
-     function getNaam() {
-         return $this->naam;
-     }
+    private $productId;
+    private $naam;
+    private $beschikbaarheid;
+    private $prijs;
 
-     function getBeschikbaarheid() {
-         return $this->beschikbaarheid;
-     }
+    function __construct($productId, $naam, $beschikbaarheid, $prijs) {
+        $this->productId = $productId;
+        $this->naam = $naam;
+        $this->beschikbaarheid = $beschikbaarheid;
+        $this->prijs = $prijs;
+    }
 
-     function getPrijs() {
-         return $this->prijs;
-     }
+    function getProductId() {
+        return $this->productId;
+    }
 
-        function setNaam($naam) {
-         $this->naam = $naam;
-     }
+    function getNaam() {
+        return $this->naam;
+    }
 
-     function setBeschikbaarheid($beschikbaarheid) {
-         $this->beschikbaarheid = $beschikbaarheid;
-     }
+    function getBeschikbaarheid() {
+        return $this->beschikbaarheid;
+    }
 
-     function setPrijs($prijs) {
-         $this->prijs = $prijs;
-     }
-  
- }
+    function getPrijs() {
+        return $this->prijs;
+    }
+
+    function getIngredienten() {
+        $ingredientenDAO = new IngredientDAO();
+        return $ingredientenDAO->getIngredienten($this->productId);
+    }
+
+    function setNaam($naam) {
+        $this->naam = $naam;
+    }
+
+    function setBeschikbaarheid($beschikbaarheid) {
+        $this->beschikbaarheid = $beschikbaarheid;
+    }
+
+    function setPrijs($prijs) {
+        $this->prijs = $prijs;
+    }
+
+}

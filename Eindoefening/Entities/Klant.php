@@ -9,17 +9,14 @@ class Klant {
     private $postcode;
     private $gemeente;
     private $telefoonnummer;
-    private $email;
-
-    function __construct($klantId, $naam, $voornaam, $adres, $postcode, $gemeente, $telefoonnummer, $email) {
-        $this->klantId = $klantId;
+    
+    function __construct($naam, $voornaam, $adres, $postcode, $gemeente, $telefoonnummer) {
         $this->naam = $naam;
         $this->voornaam = $voornaam;
         $this->adres = $adres;
         $this->postcode = $postcode;
         $this->gemeente = $gemeente;
         $this->telefoonnummer = $telefoonnummer;
-        $this->email = $email;
     }
 
     function getKlantId() {
@@ -49,11 +46,7 @@ class Klant {
     function getTelefoonnummer() {
         return $this->telefoonnummer;
     }
-
-    function getEmail() {
-        return $this->email;
-    }
-
+  
     function setNaam($naam) {
         $this->naam = $naam;
     }
@@ -78,9 +71,7 @@ class Klant {
         $this->telefoonnummer = $telefoonnummer;
     }
 
-    function setEmail($email) {
-        $this->email = $email;
-    }
+ 
 
 
 }

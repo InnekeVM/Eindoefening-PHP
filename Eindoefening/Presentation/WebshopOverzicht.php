@@ -7,34 +7,36 @@
     <body>
         <h1>Pizzeria Mama Mia</h1>
         <h2>Onze Pizza's </h2>
-        <ul>
+        <a href="Winkelwagen.php">Naar de winkelwagen</a>
+        <table>
             <?php foreach ($overzicht as $pizza) {
                 ?>
-                <li>
-                    <?php echo ($pizza->getNaam()) ?>
-                    <ul>
-                        <?php foreach ($ingredientenlijst($pizza->getProductId) as $ingredient) {
-                            ?>
-                            <li>
-                                <?php echo ($ingredient->getNaam); ?>
-                            </li>
-                        <?php } ?>
-                    </ul>
-                    <form action="../BestelForm.php?bestel" method="post">
-                        <select name="hoeveel">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                        <input type="submit" value="bestel">
-                    </form>
-                </li>
+                <tr>
+                    <td>
+                        <?php echo ($pizza->getNaam()); ?>
+                    </td>
+                    <td>
+                        <ul>
+                            <?php foreach ($pizza->getIngredienten() as $ingredient) {
+                                ?>
+                                <li>
+                                    <?php echo ($ingredient->getNaam()); ?>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </td>
+                    <td>
+                        <form action="Winkelwagen.php?action=bestel" method="post">
+                            <input type="hidden" name="productId" value="<?php echo $pizza->getProductId(); ?>">
+                            <input type="number" name="aantal" min="0" max="99">
+                            <input type="submit" value="bestel">
+                        </form>
+                    </td>
+                </tr>
 
             <?php }
             ?>
 
-        </ul>
+        </table>
 
     </body>

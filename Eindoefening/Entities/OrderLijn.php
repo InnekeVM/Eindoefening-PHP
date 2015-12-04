@@ -1,32 +1,36 @@
 <?php
+require_once 'Data/ProductDAO.php';
 
-class OrderLijn {
-    private $orderLijnId;
+class Orderlijn {
+
+    private $lijnId;
     private $productId;
     private $aantal;
-    private $winkelwagenId;
-    
-    function __construct($orderLijnId, $productId, $aantal, $winkelwagenId) {
-        $this->orderLijnId = $orderLijnId;
+    private $bestelId;
+
+    function __construct($productId, $aantal) {
         $this->productId = $productId;
         $this->aantal = $aantal;
-        $this->winkelwagenId = $winkelwagenId;
     }
 
-    function getOrderLijnId() {
-        return $this->orderLijnId;
+    function getLijnId() {
+        return $this->lijnId;
     }
 
-    function getProductId() {
-        return $this->productId;
+    function getProduct() {
+        return ProductDAO::getById($this->productId);
+    }
+
+    function calculatePrijs() {
+        return $this->getProduct()->getPrijs() * $this->aantal;
     }
 
     function getAantal() {
         return $this->aantal;
     }
 
-    function getWinkelwagenId() {
-        return $this->winkelwagenId;
+    function getbestelId() {
+        return $this->bestelId;
     }
 
     function setProductId($productId) {
@@ -37,11 +41,8 @@ class OrderLijn {
         $this->aantal = $aantal;
     }
 
-    function setWinkelwagenId($winkelwagenId) {
-        $this->winkelwagenId = $winkelwagenId;
+    function setBestelId($bestelId) {
+        $this->bestelId = $bestelId;
     }
 
-
 }
-
-

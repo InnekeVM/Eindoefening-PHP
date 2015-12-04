@@ -11,7 +11,7 @@ class DBConfig extends PDO {
     public function _construct() {
         $this->engine = 'mysql';
         $this->host = 'localhost';
-        $this->database = 'eindoefening';
+        $this->database = 'webshop';
         $this->user = 'cursusgebruiker';
         $this->pass = 'cursuspwd';
         $dns = $this->engine . ':dbname=' . $this->database . ";host=" . $this->host . "; charset=utf8";

@@ -1,17 +1,42 @@
 <?php
 
 class Webklant {
-    
+
     private $loginId;
+    private $email;
     private $wachtwoord;
     private $status;
     private $klantId;
-    
-    function __construct($loginId, $wachtwoord, $status, $klantId) {
-        $this->loginId = $loginId;
+
+    function __construct($email, $wachtwoord, $status, $klantId) {
+        $this->email = $email;
         $this->wachtwoord = $wachtwoord;
         $this->status = $status;
         $this->klantId = $klantId;
+    }
+
+    function getLoginId() {
+        return $this->loginId;
+    }
+
+    function getEmail() {
+        return $this->email;
+    }
+
+    function getWachtwoord() {
+        return $this->wachtwoord;
+    }
+
+    function getStatus() {
+        return $this->status;
+    }
+
+    function getKlantId() {
+        return $this->klantId;
+    }
+
+    function setEmail($email) {
+        $this->email = $email;
     }
 
     function setWachtwoord($wachtwoord) {
@@ -26,6 +51,4 @@ class Webklant {
         $this->klantId = $klantId;
     }
 
-
 }
-
