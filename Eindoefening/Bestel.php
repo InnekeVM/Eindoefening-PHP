@@ -5,3 +5,6 @@
  
  include_once 'Presentation/Afrekenen.php';
  
+ $bestelService = new BestelService;
+ 
+ $bestelService->getPrijs($_GET['id'], $ProductId);

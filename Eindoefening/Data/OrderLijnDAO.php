@@ -22,6 +22,13 @@ class OrderLijnDAO {
         return $lijst;
     }
     
+       function voegToe($productId, $aantal, $bestelId, $prijs) {
+        $sql = "insert into bestellingen (productId, aantal, bestelId, prijs) values (:productId, :aantal, :bestelId, :prijs)";
+        $dbh = InnekeFramework::getDatabase();
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute(array(':productId'=>$productId, ':aantal'=>$aantal, ':bestelId', ':prijs'=>$prijs ));
+       
+    }
     
 
 }

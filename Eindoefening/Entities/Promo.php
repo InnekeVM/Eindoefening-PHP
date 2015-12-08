@@ -1,6 +1,6 @@
 <?php
 
-class Promoprijs {
+class Promo {
     private $promoId;
     private $prijs;
     private $naam;

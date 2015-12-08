@@ -2,7 +2,7 @@
 
 require_once 'DBConfig.php';
 require_once 'Entities/Klant.php';
-require_once 'Entities/Promoprijs.php';
+require_once 'Entities/Promo.php';
 
 class PromoDAO {
 
@@ -11,12 +11,15 @@ class PromoDAO {
         $dbh = new DBConfig();
         $stmt = $dbh->prepare($sql);
         $stmt->execute(array(':id' => $id));
-        $rij = $stmt->fetch(PDO::FETCH_ASSOC);
-        $promo = new Promoprijs($rij["promoId"], $rij["prijs"], $rij["naam"], $rij["productId"], $rij["statusId"]);
+        $resultSet = $dbh->query($sql);
+        $lijst = array();
+
+        foreach ($resultSet as $rij) {
+            $promo = new Promo($rij['promoId'], $rij['prijs'], $rij['naam'], $rij['productId'], $rij['statusId']);
+            $lijst[] = $promo;
+        }
         $dbh = null;
-        return $promo;
+        return $lijst;
     }
-    
-    
 
 }

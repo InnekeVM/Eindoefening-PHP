@@ -1,4 +1,5 @@
 <?php
+
 require_once 'Data/ProductDAO.php';
 
 class Orderlijn {
@@ -7,6 +8,7 @@ class Orderlijn {
     private $productId;
     private $aantal;
     private $bestelId;
+    private $prijs;
 
     function __construct($productId, $aantal) {
         $this->productId = $productId;
@@ -16,8 +18,11 @@ class Orderlijn {
     function getLijnId() {
         return $this->lijnId;
     }
+    function getProductId() {
+        return $this->productId;
+    }
 
-    function getProduct() {
+        function getProduct() {
         return ProductDAO::getById($this->productId);
     }
 
@@ -43,6 +48,10 @@ class Orderlijn {
 
     function setBestelId($bestelId) {
         $this->bestelId = $bestelId;
+    }
+    
+    function setPrijs($prijs) {
+        $this->prijs;
     }
 
 }
