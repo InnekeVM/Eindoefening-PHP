@@ -8,6 +8,7 @@
     <body>
         <h1>Pizzeria Mama Mia</h1>
         <h2>Winkelwagen </h2>
+       
         <table>
             <?php
             if (isset($_SESSION['winkelwagen'])) {

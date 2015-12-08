@@ -25,9 +25,14 @@
             ?>
 
         </table>
+        <form method="post" action="Bestel.php?action=bestel">
+            <p>Opmerkingen:</p>
+            <textarea name="extraInfo" id="extraInfo"></textarea>
+            <input type="submit" value="Bestelling Plaatsen">
+        </form>
 
         <a href="Overzicht.php">Terug naar overzicht</a>       
-        <a href="Bestel.php">Bestelling plaatsen</a>
+      
 
 
 

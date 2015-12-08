@@ -1,21 +1,22 @@
 <?php
 
-require_once 'DBConfig.php';
+require_once 'includes/init.php';
 require_once 'Entities/Klant.php';
-require_once 'Entities/Promo.php';
+require_once 'Entities/Promoprijs.php';
 
 class PromoDAO {
 
     public function getPromoVoorStatus($id) {
         $sql = "select * from promos where statusId = :id ";
-        $dbh = new DBConfig();
+        $dbh = InnekeFramework::getDatabase();
         $stmt = $dbh->prepare($sql);
         $stmt->execute(array(':id' => $id));
-        $resultSet = $dbh->query($sql);
+        $resultSet = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
         $lijst = array();
 
         foreach ($resultSet as $rij) {
-            $promo = new Promo($rij['promoId'], $rij['prijs'], $rij['naam'], $rij['productId'], $rij['statusId']);
+            $promo = new Promoprijs($rij['promoId'], $rij['prijs'], $rij['naam'], $rij['productId'], $rij['statusId']);
             $lijst[] = $promo;
         }
         $dbh = null;

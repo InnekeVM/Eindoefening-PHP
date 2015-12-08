@@ -6,7 +6,7 @@ require_once 'Business/WinkelwagenService.php';
 if (isset($_GET['action']) && $_GET['action'] == 'bestel') {
     $winkelwagenService = new WinkelwagenService();
     $winkelwagenService->bestel();
-    header("location:Winkelwagen.php");
+    header("location:Overzicht.php");
 }
 
 
@@ -22,4 +22,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'wijzig') {
     header("location:Winkelwagen.php");
 }
 
-include_once 'Presentation/WinkelwagenOverzicht.php';
+if (isset($_SESSION['id'])) {
+    include_once 'Presentation/Afrekenen.php';
+} else {
+
+    include_once 'Presentation/WinkelwagenOverzicht.php';
+}

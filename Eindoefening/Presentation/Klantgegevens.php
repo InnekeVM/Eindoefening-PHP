@@ -5,7 +5,7 @@
 
     </head>
     <body>
-          <?php if (isset($_GET['error']) && $_GET['error'] == 'KlantBestaatNiet') {
+        <?php if (isset($_GET['error']) && $_GET['error'] == 'KlantBestaatNiet') {
             ?>
             <p>Klant bestaat niet.  Registreer je hier:</p>
             <?php
@@ -39,5 +39,5 @@
             <input type="checkbox" name="acount">Een nieuwe account aanmaken<br>
             <input type="submit" value="Vul gegevens in">
         </form>
-<?php        var_dump($id);?>
+
     </body>

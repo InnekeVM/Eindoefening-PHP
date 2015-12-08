@@ -9,7 +9,7 @@ require_once 'Entities/OrderLijn.php';
 InnekeFramework::init(require_once(__DIR__ . '/config.php'));
 
 // Init session
-setcookie('email');
+
 session_start();
 
  function phpAlert($msg) {

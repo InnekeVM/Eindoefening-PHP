@@ -8,6 +8,7 @@
         <h1>Pizzeria Mama Mia</h1>
         <h2>Onze Pizza's </h2>
         <a href="Winkelwagen.php">Naar de winkelwagen</a>
+        <a href="Login.php">Login</a>
         <table>
             <?php foreach ($overzicht as $pizza) {
                     ?>

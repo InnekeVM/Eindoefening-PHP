@@ -45,8 +45,8 @@ class KlantService {
             $salt = sha1($email);
             $wachtwoordHash = sha1($salt . $wachtwoord);
             if ($klant->getWachtwoord() == $wachtwoordHash) {
-                $_SESSION['login'] = $klant->getKlantId();
-                return $_SESSION['login'];
+                $_SESSION['id'] = $klant->getKlantId();
+                return $_SESSION['id'];
             } else {
                 throw new WachtwoordFoutException;
             }

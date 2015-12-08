@@ -20,7 +20,7 @@
             <fieldset>
                 <legend>Logingegevens:</legend>
                 Email:
-                <input type="email" name="email" placeholder="Emailadres" required>
+                <input type="email" name="email" value="<?php if (isset($_COOKIE['email'])){echo $_COOKIE['email'];}?>" placeholder="Emailadres" required>
                 <br>
                 Wachtwoord:
                 <input type="password" name="wachtwoord" placeholder="Wachtwoord" required>

@@ -11,9 +11,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'account') {
     if ($_POST['wachtwoord'] == $_POST['wachtwoordher']) {
         try {
             $klantService = new KlantService();
-            $klantService->registreer($_POST['email'], $_POST['wachtwoord'], $_GET['id']);
-            $id=$_GET['id'];
-            header("location:Bestel.php?id=$id");
+            $klantService->registreer($_POST['email'], $_POST['wachtwoord'], $_SESSION['id']);
+            setcookie('email', $_POST['email']);
+
+            header("location:Bestel.php");
         } catch (EmailadresReedsAcountException $ex) {
             header("location:Account.php?error=EmailadresReedsAccount");
         }
