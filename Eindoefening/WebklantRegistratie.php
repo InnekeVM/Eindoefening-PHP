@@ -11,7 +11,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'account') {
     if ($_POST['wachtwoord'] == $_POST['wachtwoordher']) {
         try {
             $klantService = new KlantService();
-            $klantService->registreer($_POST['email'], $_POST['wachtwoord'], $_SESSION['id']);
+            $klantService->registreer($_POST['email'], $_POST['wachtwoord'], $_SESSION['klantId']);
             setcookie('email', $_POST['email']);
 
             header("location:Bestel.php");

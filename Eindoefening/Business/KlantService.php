@@ -20,9 +20,9 @@ class KlantService {
         }
     }
 
-    public function voegToe($naam, $voornaam, $adres, $postcode, $gemeente, $telefoonnummer) {
+    public function voegToe($naam, $voornaam, $adres, $nummer, $postcode, $gemeente, $telefoonnummer) {
         $klantDAO = new KlantDAO();        
-        return $klantDAO->voegKlantToe($naam, $voornaam, $adres, $postcode, $gemeente, $telefoonnummer);
+        return $klantDAO->voegKlantToe($naam, $voornaam, $adres, $nummer, $postcode, $gemeente, $telefoonnummer);
    }
 
     public function registreer($email, $wachtwoord, $klantId) {
@@ -45,8 +45,8 @@ class KlantService {
             $salt = sha1($email);
             $wachtwoordHash = sha1($salt . $wachtwoord);
             if ($klant->getWachtwoord() == $wachtwoordHash) {
-                $_SESSION['id'] = $klant->getKlantId();
-                return $_SESSION['id'];
+                $_SESSION['klantId'] = $klant->getKlantId();
+                return $_SESSION['klantId'];
             } else {
                 throw new WachtwoordFoutException;
             }
@@ -55,4 +55,14 @@ class KlantService {
         }
     }
 
+    public function getKlantById($id){
+        $klantDAO = new KlantDAO;
+        $klant = $klantDAO->getById($id);
+        return $klant;
+    }
+    
+    public function updateKlant($klant){
+        $klantDAO = new KlantDAO;
+        $klantDAO->updateKlant($klant);
+    }
 }

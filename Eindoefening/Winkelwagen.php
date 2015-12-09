@@ -22,7 +22,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'wijzig') {
     header("location:Winkelwagen.php");
 }
 
-if (isset($_SESSION['id'])) {
+if (isset($_SESSION['klantId'])) {
     include_once 'Presentation/Afrekenen.php';
 } else {
 

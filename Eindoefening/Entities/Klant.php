@@ -6,14 +6,16 @@ class Klant {
     private $naam;
     private $voornaam;
     private $adres;
+    private $nummer;
     private $postcode;
     private $gemeente;
     private $telefoonnummer;
     
-    function __construct($naam, $voornaam, $adres, $postcode, $gemeente, $telefoonnummer) {
+    function __construct($naam, $voornaam, $adres, $nummer, $postcode, $gemeente, $telefoonnummer) {
         $this->naam = $naam;
         $this->voornaam = $voornaam;
         $this->adres = $adres;
+        $this->nummer = $nummer;
         $this->postcode = $postcode;
         $this->gemeente = $gemeente;
         $this->telefoonnummer = $telefoonnummer;
@@ -34,8 +36,11 @@ class Klant {
     function getAdres() {
         return $this->adres;
     }
+    function getNummer() {
+        return $this->nummer;
+    }
 
-    function getPostcode() {
+        function getPostcode() {
         return $this->postcode;
     }
 
@@ -58,7 +63,11 @@ class Klant {
     function setAdres($adres) {
         $this->adres = $adres;
     }
+    function setNummer($nummer) {
+        $this->nummer = $nummer;
+    }
 
+    
     function setPostcode($postcode) {
         $this->postcode = $postcode;
     }

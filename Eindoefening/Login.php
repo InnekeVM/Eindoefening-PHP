@@ -6,10 +6,9 @@ include_once 'Presentation/LoginForm.php';
 
 if (isset($_GET['action']) && $_GET['action'] == 'login') {
     try {
-        setcookie('email', $_POST['email']);
         $klantService = new KlantService();
         $klantService->login($_POST['email'], $_POST['wachtwoord']);
-        
+        setcookie('email', $_POST['email']);
         header("location:Bestel.php");
     } catch (KlantBestaatNietException $exc) {
 
